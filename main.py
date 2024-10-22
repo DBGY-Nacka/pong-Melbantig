@@ -10,12 +10,12 @@ screen.bgcolor("black")
 screen.title("Pong")
 screen.tracer(0)
 
-paddle_1 = Paddle(300, 0)
-paddle_2 = Paddle(-300, 0)
-
+paddle_1 = Paddle(360, 0)
+paddle_2 = Paddle(-360, 0)
 
 def main():
     pass
+
 
 if __name__ == "__main__":
 
@@ -36,23 +36,26 @@ if __name__ == "__main__":
         time.sleep(0.09)
         ball.move()
 
-    if  ball.xcor() > 320:
-        pass
+    if ball.ycor() > 295 or ball.ycor() > -295:
+        ball.y_bounce
+        ball.dy *= -1
 
-    if  ball.xcor() < -320:
-        pass
+    if (ball.distance(paddle_1) < 50 and ball.xcor() > 320) or (ball.distance(paddle_2) < 50 and ball.xcor() < -320):
+        ball.x_bounce()
 
-    if ball.ycor() > 295:
-        pass
+    if  ball.xcor() > 365:
+        scoreboard.player_1_score
+        ball.goto(0,0)
+        ball.dx *= -1
 
-    if ball.ycor() < -295:
-        pass
-
+    if  ball.xcor() < -365:
+        scoreboard.player_2_score
+        ball.goto(0,0)
+        ball.dx *= -1
+    
+    if scoreboard.player_1_score or scoreboard.player_2_score == 10:
+        scoreboard.game_over
     
 
-    
-    
     screen.exitonclick()
-
-
     main()

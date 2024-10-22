@@ -4,9 +4,26 @@ class Ball(Turtle):
     def __init__(self):
         super().__init__()
         self.shape("circle")
-        self.penup()
-        self.shapesize(stretch_len= 1, stretch_wid= 1)
         self.color("red")
-        self.speed(10)
-    
+        self.penup()
+        self.x_move = 10  # Horizontal movement speed
+        self.y_move = 10  # Vertical movement speed
+        self.move_speed = 0.1
+
+    def move_x(self):
+        new_x = self.xcor() + self.x_move
+        self.goto(new_x, self.ycor())
+        
+    def move_y(self):
+        new_y = self.ycor() + self.y_move
+        self.goto(self.xcor(), new_y)
+
+    def x_bounce(self):
+        self.x_move *= -1
+        self.move_speed *= 0.9
+
+    def y_bounce(self):
+        self.y_move *= -1
+
+        
 
