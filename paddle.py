@@ -8,11 +8,11 @@ class Paddle(Turtle):
     MOVE_DISTANCE = 20
 
     def __init__(self, x_pos, y_pos):
-        super().__init__
+        super().__init__()
         self.shape("square")
         self.color("white")
         self.penup()
-        self.shapesize(stretch_len = 7, stretch_wid = 1)
+        self.shapesize(stretch_len = 1, stretch_wid = 6)
         self.goto(x_pos, y_pos)
         
     def go_up(self):
